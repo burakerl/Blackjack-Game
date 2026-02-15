@@ -72,7 +72,7 @@ async function startGame() {
   splitBtn.disabled = true;
 
   if (playerCardsValue === 21) {
-    displayRestart("Blackjack!!")
+    displayRestart("Blackjack!!");
   }
 }
 
@@ -87,7 +87,7 @@ async function drawCardTo(table, target) {
   img.src = data.cards[0].image;
   table.appendChild(img);
 
-  let value = normalizeValue(data.cards[0].value, "player");
+  let value = normalizeValue(data.cards[0].value, target);
 
   if (target === "player") {
     playerCardsValue += value;
@@ -98,10 +98,10 @@ async function drawCardTo(table, target) {
     console.log("AI total:", aiCardsValue);
   }
   if (playerCardsValue === 21) {
-    displayRestart("You win.")
+    displayRestart("You win.");
   }
   if (playerCardsValue > 21) {
-    displayRestart("You Lost.")
+    displayRestart("You Lost.");
   }
 }
 
