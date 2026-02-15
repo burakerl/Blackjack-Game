@@ -67,7 +67,7 @@ span {
 @media (max-width: 1000px), (max-height:600px ) {
   body {
     font-size: 10px;
-    min-height: 100svh;
+    height: 80vh;
   }
   .game {
     flex-direction: column;
