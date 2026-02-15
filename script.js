@@ -101,7 +101,7 @@ async function drawCardTo(table, target) {
     displayRestart("You win.");
   }
   if (playerCardsValue > 21) {
-    displayRestart("You Lost.");
+  displayRestart("You Lost.");
   }
 }
 
