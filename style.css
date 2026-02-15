@@ -67,6 +67,7 @@ span {
 @media (max-width: 900px) {
     body{
         font-size: 10px;
+        min-height: 100svh;
     }
   .game {
     height: auto;
