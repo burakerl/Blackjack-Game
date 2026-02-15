@@ -1,67 +1,95 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: gray;
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
 }
 .game {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    gap: 20px;
-    width: 80%;
-    height: 80%;
-    background-color: rgb(4, 58, 4);
-    border: 2px solid white;
-    border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  gap: 20px;
+  width: 80%;
+  height: 80%;
+  background-color: rgb(4, 58, 4);
+  border: 2px solid white;
+  border-radius: 15px;
 }
 
 .ai-table,
 .player-table {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 45%;
-    height: 60%;
-    border: 5px solid white;
-    border-radius: 10px;
-    width: 45%;
-    height: 60%;
-    border: 5px solid white;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 45%;
+  height: 60%;
+  border: 5px solid white;
+  border-radius: 10px;
+  width: 45%;
+  height: 60%;
+  border: 5px solid white;
+  border-radius: 10px;
 }
 
 .buttons-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .buttons-area > * {
-    height: 80px;
-    width: 100px;
-    border: none;
-    cursor: pointer;
+  height: 80px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
 }
 .buttons-area > *:hover {
-    background-color: rgba(201, 197, 197, 10);
+  background-color: rgba(201, 197, 197, 10);
 }
 img {
-    width: 100px;
+  width: 100px;
 }
 .message {
-    color: white;
-    font-size: 50px;
+  color: white;
+  font-size: 50px;
 }
 span {
-    color: yellow;
+  color: yellow;
+  font-size: 12px;
+}
+@media (max-width: 900px) {
+    body{
+        font-size: 10px;
+    }
+  .game {
+    flex-direction: column;
+    gap: 0;
+  }
+  .ai-table,
+  .player-table {
+    width: 100%;
+  }
+  .message {
+    font-size: 20px;
+  }
+  .buttons-area > * {
+    height: 60px;
+    width: 80px;
     font-size: 12px;
+  }
+  #doubledown-btn,
+  #split-btn {
+    display: none;
+  }
+  img {
+    width: 80px;
+  }
 }
