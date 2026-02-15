@@ -64,6 +64,9 @@ span {
   color: yellow;
   font-size: 12px;
 }
+h1 {
+  padding: 10px;
+}
 @media (max-width: 1000px), (max-height:600px ) {
   body {
     font-size: 10px;
