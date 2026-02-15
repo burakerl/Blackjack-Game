@@ -53,37 +53,26 @@ function checkPoints() {
 
 async function startGame() {
   const response = await fetch(
-    "https://deckofcardsapi.com/api/deck/new/draw/?count=4",
+    "https://deckofcardsapi.com/api/deck/new/draw/?count=2",
   );
   const data = await response.json();
 
   deckID = data.deck_id;
 
-  aiCard[0].src = data.cards[0].image;
-  aiCard[1].src = data.cards[1].image;
-  playerCard[0].src = data.cards[2].image;
-  playerCard[1].src = data.cards[3].image;
-
-  aiCardsValue =
-    normalizeValue(data.cards[0].value, "ai") +
-    normalizeValue(data.cards[1].value, "ai");
+  playerCard[0].src = data.cards[0].image;
+  playerCard[1].src = data.cards[1].image;
 
   playerCardsValue =
-    normalizeValue(data.cards[2].value, "player") +
-    normalizeValue(data.cards[3].value, "player");
+    normalizeValue(data.cards[0].value, "player") +
+    normalizeValue(data.cards[1].value, "player");
 
   console.log("AI:", aiCardsValue, "Player:", playerCardsValue);
   againBtn.disabled = true;
   dounbleDBtn.disabled = true;
   splitBtn.disabled = true;
+
   if (playerCardsValue === 21) {
-    msg.textContent = "Blackjack!!";
-    hitBtn.disabled = true;
-    stayBtn.disabled = true;
-    againBtn.disabled = false;
-    againBtn.addEventListener("click", () => {
-    window.location.reload();
-  })
+    displayRestart("Blackjack!!")
   }
 }
 
@@ -108,16 +97,26 @@ async function drawCardTo(table, target) {
     aiCardsValue += value;
     console.log("AI total:", aiCardsValue);
   }
+  if (playerCardsValue === 21) {
+    displayRestart("You win.")
+  }
+  if (playerCardsValue > 21) {
+    displayRestart("You Lost.")
+  }
 }
 
 hitBtn.addEventListener("click", () => {
   drawCardTo(playerCards, "player");
 });
 
-stayBtn.addEventListener("click", async() => {
-  while((aiCardsValue < 19) && (aiCardsValue < playerCardsValue && playerCardsValue <= 21)) {
+stayBtn.addEventListener("click", async () => {
+  while (
+    aiCardsValue < 19 &&
+    aiCardsValue < playerCardsValue &&
+    playerCardsValue <= 21
+  ) {
     await drawCardTo(aiCards, "ai");
-    if(aiCardsValue >= 21) {
+    if (aiCardsValue >= 21) {
       break;
     }
   }
@@ -131,3 +130,13 @@ stayBtn.addEventListener("click", async() => {
 });
 
 startGame();
+
+function displayRestart(text) {
+  msg.textContent = text;
+  hitBtn.disabled = true;
+  stayBtn.disabled = true;
+  againBtn.disabled = false;
+  againBtn.addEventListener("click", () => {
+    window.location.reload();
+  });
+}

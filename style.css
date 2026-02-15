@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 45%;
   height: 60%;
   border: 5px solid white;
@@ -37,6 +37,7 @@ body {
   width: 45%;
   height: 60%;
   border-radius: 10px;
+  color: white;
 }
 
 .buttons-area {
@@ -65,21 +66,19 @@ span {
   font-size: 12px;
 }
 @media (max-width: 900px) {
-    body{
-        font-size: 10px;
-        min-height: 100svh;
-    }
+  body {
+    font-size: 10px;
+    min-height: 100svh;
+  }
   .game {
-    height: auto;
     flex-direction: column;
     gap: 0;
     border: none;
   }
   .ai-table,
   .player-table {
-    height: auto;
     width: 100%;
-    border: none
+    border: none;
   }
   .message {
     font-size: 20px;
@@ -94,6 +93,6 @@ span {
     display: none;
   }
   img {
-    width: 80px;
+    width: 70px;
   }
 }
