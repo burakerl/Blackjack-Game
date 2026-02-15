@@ -69,13 +69,16 @@ span {
         font-size: 10px;
     }
   .game {
+    height: auto;
     flex-direction: column;
     gap: 0;
+    border: none;
   }
   .ai-table,
   .player-table {
+    height: auto;
     width: 100%;
-    border: 1px solid white;
+    border: none
   }
   .message {
     font-size: 20px;
